@@ -1,27 +1,47 @@
 <template>
   <div class="card">
     <nuxt-link :to="`/example/http-request/${id}`">
-      <img :src="img" class="card-img-top" :alt="'foto ' +name">
+      <img :src="img" class="card-img-top" :alt="'foto ' + name" />
     </nuxt-link>
     <div class="card-body">
       <nuxt-link :to="`/example/http-request/${id}`">
-        <h5 class="card-title">{{name}}</h5>
+        <h5 class="card-title">{{ name }}</h5>
       </nuxt-link>
-      <p class="card-text">{{desc}}</p>
-      <button v-if="!unfollow" type="button" class="btn btn-primary" @click="followClass">Follow</button>
-      <button v-else type="button" class="btn btn-outline-danger" @click="followClass">Unfollow</button>
+      <p class="card-text">{{ desc }}</p>
+      <button class="btn btn-primary" type="button" @click="tambahChart">
+        Tambah Chart
+      </button>
+      <class-button />
+      <button
+        v-if="!unfollow"
+        type="button"
+        class="btn btn-primary"
+        @click="followClass"
+      >
+        Follow
+      </button>
+      <button
+        v-else
+        type="button"
+        class="btn btn-outline-danger"
+        @click="followClass"
+      >
+        Unfollow
+      </button>
       <i class="fas fa-trash" @click="confirmDelete"></i>
     </div>
   </div>
 </template>
 <script>
-import request from "../../mixins/request.vue";
-import { currency } from "../../mixins/script";
+// import request from "../../mixins/request.vue";
+// import { currency } from "../../mixins/script";
+// import Button from "../items/button.vue";
 export default {
-  mounted() {
-    currency();
-  },
-  mixins: [request],
+  // mounted() {
+  //   cur;
+  //   Buttonrency();
+  // },
+  // mixins: [request],
   props: {
     id: {
       type: Number,
@@ -65,6 +85,14 @@ export default {
       };
       if (this.unfollow) this.$emit("unfollow-class", data);
       else this.$emit("follow-class", data);
+    },
+    tambahChart() {
+      const list = {
+        name: this.name,
+        desc: this.desc,
+        img: this.img,
+      };
+      this.$store.dispatch("latihan/setJumlah", list);
     },
   },
 };

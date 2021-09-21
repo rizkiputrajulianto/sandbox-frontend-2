@@ -2,8 +2,12 @@
   <div>
     <h1>STATE MANAGEMENT</h1>
     <div class="row">
-      <div class="col-md-4" v-for="(item,i) in listClass" :key="i">
-        <class-item :name="item.name" :desc="item.description" :img="item.img" />
+      <div class="col-md-4" v-for="(item, i) in listClasses" :key="i">
+        <class-item
+          :name="item.name"
+          :desc="item.description"
+          :img="item.img"
+        />
       </div>
     </div>
   </div>
@@ -16,7 +20,7 @@ export default {
     };
   },
   computed: {
-    listClass() {
+    listClasses() {
       return this.$store.state.class.listClass;
     },
   },
