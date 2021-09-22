@@ -11,7 +11,6 @@
       <button class="btn btn-primary" type="button" @click="tambahChart">
         Tambah Chart
       </button>
-      <class-button />
       <button
         v-if="!unfollow"
         type="button"

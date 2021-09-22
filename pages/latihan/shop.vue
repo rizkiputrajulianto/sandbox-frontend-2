@@ -20,7 +20,7 @@ export default {
       // keranjang: this.$store.state.latihan.jumlahData,
     };
   },
-  // compute buat v for doang
+  // compute buat v for doang (kayanya)
   computed: {
     keranjang() {
       return this.$store.state.latihan.jumlahData;

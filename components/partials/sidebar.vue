@@ -34,6 +34,12 @@ export default {
     return {
       listMenu: [
         {
+          name: "Sandbox Frontend 2",
+          icon: "fas fa-book",
+          to: "/sandbox-frontend-2/main",
+          role: ["admin", "tutor"],
+        },
+        {
           name: "Dashboard baru",
           icon: "fas fa-home",
           to: "/",
